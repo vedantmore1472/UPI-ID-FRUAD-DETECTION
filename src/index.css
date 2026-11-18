@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0a0e1a;
+    color: #e8edf5;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  input {
+    font-family: inherit;
+    outline: none;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293f;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a3a5c;
+  }
+}
+
+@layer components {
+  .card {
+    background: #111729;
+    border: 1px solid #1e293f;
+    border-radius: 12px;
+  }
+
+  .card-hover {
+    transition: border-color 0.2s ease;
+  }
+  .card-hover:hover {
+    border-color: #2a3a5c;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: #1d4ed8;
+  }
+  .btn-primary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    background: #161e36;
+    border: 1px solid #1e293f;
+    color: #94a3b8;
+    padding: 8px 16px;
+  }
+  .btn-secondary:hover {
+    border-color: #2a3a5c;
+    color: #e8edf5;
+    background: #1c2640;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 10px 14px;
+    background: #161e36;
+    border: 1px solid #1e293f;
+    border-radius: 8px;
+    color: #e8edf5;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .input-field::placeholder {
+    color: #5b6b85;
+    font-weight: 400;
+  }
+  .input-field:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+
+  .tab-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: #94a3b8;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .tab-button:hover {
+    color: #e8edf5;
+    background: #161e36;
+  }
+  .tab-button.active {
+    color: #e8edf5;
+    background: #1c2640;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease both;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* Recharts tooltip styling */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #161e36 !important;
+  border: 1px solid #2a3a5c !important;
+  border-radius: 8px !important;
+}
+.recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-label {
+  color: #e8edf5 !important;
+}
+.recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-item {
+  color: #94a3b8 !important;
+}
